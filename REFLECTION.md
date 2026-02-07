@@ -94,4 +94,4 @@ This demonstrates understanding of the CSS cascade and specificity, which was a 
 
 **Assignment Completion Date**: February 6, 2026  
 **Student**: Brian Almazo  
-**Repository**: https://github.com/brianalmazo/brianalmazo.github.io
+**Repository**: https://github.com/BrianAlmaz0/brianalmazo.github.io

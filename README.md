@@ -85,7 +85,7 @@ Homework 1/
 
 - Email: brianalmazo9@gmail.com
 - LinkedIn: [linkedin.com/in/balmazo/](https://linkedin.com/in/balmazo/)
-- GitHub: [github.com/BrianAlmazo/](https://github.com/BrianAlmazo/)
+- GitHub: [github.com/BrianAlmaz0](https://github.com/BrianAlmaz0)
 
 ---
 
