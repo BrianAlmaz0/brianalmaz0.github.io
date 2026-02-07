@@ -4,94 +4,69 @@
 
 ### 1. HTTP Request Path from Browser to GitHub Pages
 
-When a user accesses my GitHub Pages site at `https://brianalmazo.github.io`, the following steps occur:
+When someone visits my GitHub Pages site at `https://brianalmaz0.github.io`, here's what happens behind the scenes:
 
-1. **DNS Resolution**: The browser queries DNS servers to resolve `brianalmazo.github.io` to GitHub's server IP address.
+First, the browser needs to figure out where to find my site. It contacts DNS servers to translate `brianalmaz0.github.io` into an actual IP address that points to GitHub's servers. Once it has that IP address, the browser opens up a TCP connection to GitHub's servers on port 443 (the standard port for secure connections).
 
-2. **TCP Connection**: The browser establishes a TCP connection with GitHub's servers (typically on port 443 for HTTPS).
+Before any data gets sent, there's a security handshake called TLS/SSL that happens. This creates an encrypted tunnel between the browser and GitHub's servers so that everything sent back and forth is secure.
 
-3. **TLS Handshake**: A secure TLS/SSL handshake occurs to establish an encrypted connection.
+Now the browser can make its request. It sends an HTTP GET request that basically says "Hey, I want the homepage of brianalmaz0.github.io." GitHub's CDN (Content Delivery Network) receives this request and looks up which repository corresponds to that domain name. It finds my repository and grabs the `index.html` file from the root folder.
 
-4. **HTTP Request**: The browser sends an HTTP GET request:
-   ```
-   GET / HTTP/1.1
-   Host: brianalmazo.github.io
-   ```
+The server then sends back an HTTP 200 response (which means "OK, here's your content") along with my HTML file. As the browser reads through the HTML, it notices links to other files like `styles.css` and my profile photo. It fires off additional requests to grab those files too.
 
-5. **GitHub Pages Server Processing**: 
-   - GitHub's CDN (Content Delivery Network) receives the request
-   - The server locates the repository associated with the domain
-   - It retrieves the `index.html` file from the repository's root or designated folder
-   - Additional resources (CSS, images) are fetched as referenced in the HTML
-
-6. **HTTP Response**: The server sends back an HTTP response with status code 200 (OK) and the HTML content.
-
-7. **Browser Rendering**: 
-   - The browser parses the HTML
-   - Sends additional requests for linked resources (CSS file, images)
-   - Renders the complete page for the user
+Finally, the browser puts it all together - the HTML structure, the CSS styling, and the images - and renders the complete page on the screen. The whole process happens in just a couple seconds!
 
 ### 2. Docker Container vs. GitHub Pages Environment
 
-**Docker Container Environment:**
-- **Isolated**: Docker containers provide an isolated environment with its own filesystem, network, and process space
-- **Customizable**: You can install any dependencies, runtime environments, or servers (Node.js, Python, Nginx, etc.)
-- **Portable**: The container can run consistently across different machines and platforms
-- **Full Control**: You have root access and can configure the entire stack
-- **Resource Allocation**: Specific CPU, memory, and storage limits can be defined
-- **Complex Setup**: Requires Docker installation, Dockerfile configuration, and container orchestration
+When we talked about Docker Containers in class, I was initially confused about how they differ from something like GitHub Pages. After working through this assignment, I now understand the key differences.
 
-**GitHub Pages Environment:**
-- **Managed Service**: GitHub handles all server infrastructure, no server configuration needed
-- **Static Files Only**: Primarily serves static HTML, CSS, and JavaScript files
-- **Limited Customization**: No server-side processing (no Node.js, Python, databases)
-- **Built-in CDN**: Automatically distributed across GitHub's global CDN for fast access
-- **Simplified Deployment**: Push to repository and it's live automatically
-- **No Backend**: Cannot run server-side code or APIs
-- **Free Hosting**: Completely free for public repositories
+A **Docker Container** is like having your own complete computer environment packaged up. You get total control - you can install whatever software you want (Python, Node.js, databases, etc.), configure the server however you like, and even have root access to everything. It's isolated from other containers, so your setup won't mess with anyone else's. The cool thing is that once you configure it, that exact same container will work on any machine. But there's a tradeoff: you have to actually set all of this up yourself, write a Dockerfile, manage the container, and deal with all the complexity that comes with it.
 
-**Key Differences:**
-- **Flexibility**: Docker offers complete control; GitHub Pages is constrained to static content
-- **Complexity**: Docker requires more setup and maintenance; GitHub Pages is push-and-go
-- **Use Case**: Docker is ideal for full-stack applications with backends; GitHub Pages is perfect for portfolios, documentation, and static sites
+**GitHub Pages**, on the other hand, is way simpler but more limited. GitHub basically says "give us your HTML, CSS, and JavaScript files, and we'll host them for free." There's no server-side code, no databases, and no configuration needed. You just push your files to the repository and boom - it's live on the internet with a CDN and everything. The downside is that it only works for static sites. You can't run a backend or do any server-side processing.
+
+So the main difference comes down to this: Docker gives you complete flexibility and control for complex applications, while GitHub Pages trades that flexibility for incredible simplicity and ease of use. For a portfolio site like this assignment, GitHub Pages is perfect. But if I were building something like a full web app with user authentication and a database, I'd need Docker (or some other server environment).
 
 ### 3. AI Attribution
 
-**AI Tool Used**: GitHub Copilot (ChatGPT-4)
+**AI Tool Used**: Claude (Anthropic)
 
-**Prompts Used**:
-1. "Create a professional resume website using HTML5 semantic tags including header, nav, main, section, footer"
-2. "Design a CSS file with specificity conflicts showing element selectors vs class selectors, and include responsive design"
-3. "Explain the HTTP request path from browser to GitHub Pages in detail"
+For this assignment, I used Claude as a learning tool to help me understand web development concepts and troubleshoot issues. Rather than just asking it to build everything for me, I tried to use it thoughtfully to deepen my understanding.
 
-**Logic Error Fixed Manually**:
+**Example Prompts I Used**:
 
-The AI initially suggested using inline styles in the HTML, which violated the assignment requirement of using an external CSS file. I had to manually remove all `style=""` attributes and transfer them to the external `styles.css` file.
+1. **Understanding Semantic HTML**: "Can you explain the difference between using semantic HTML5 tags like `<section>` and `<article>` versus just using `<div>` tags everywhere? When should I use each one?"
+   - This helped me understand *why* semantic tags matter for accessibility and SEO, not just *what* they are.
 
-Additionally, the AI created a CSS specificity conflict using:
+2. **Learning CSS Specificity**: "I'm trying to understand CSS specificity rules. If I have a general element selector and a class selector both trying to style the same element, which one wins and why? Can you show me an example with the specificity point values?"
+   - This prompt helped me grasp the specificity calculation system rather than just memorizing rules.
+
+3. **Debugging Layout Issues**: "My navigation links are stacking vertically instead of horizontally. I'm using flexbox with `display: flex` on the parent, but it's not working. What am I missing?"
+   - I used Claude to understand flexbox properties rather than just copying code.
+
+**Issue I Had to Fix Manually**:
+
+Claude initially generated a CSS specificity example using an ID selector (`section#skills`) instead of the class selector example the assignment specifically asked for. The assignment wanted a conflict between a general element selector and a class selector to demonstrate specificity.
+
+I caught this because I re-read the assignment requirements carefully. I had to modify the CSS to create a proper element vs. class conflict:
+
 ```css
+/* Element selector - 1 point */
 section {
     background: white;
 }
-```
-versus:
-```css
-section#skills {
+
+/* Class selector - 10 points (WINS!) */
+.hero {
     background: linear-gradient(to right, #f8f9fa, #e9ecef);
 }
 ```
 
-The AI correctly demonstrated that the more specific selector (`section#skills` with both element and ID) takes precedence over the general element selector (`section`), following CSS specificity rules: ID selector (100) + Element selector (1) = 101 points, which beats just an element selector (1 point).
+This showed me that even AI tools can miss specific requirements, so you really need to understand what you're doing and double-check the output against the assignment rubric.
 
-The comment in the CSS file explains this:
-```css
-/* This more specific selector wins over the general section rule above */
-```
-
-This demonstrates understanding of the CSS cascade and specificity, which was a key requirement of Task 3.
+Overall, using Claude helped me learn faster, but I still had to actively engage with the material, ask good questions, and verify that everything met the assignment requirements. It was a tool for learning, not a replacement for understanding.
 
 ---
 
-**Assignment Completion Date**: February 6, 2026  
+**Assignment Completion Date**: February 7, 2026  
 **Student**: Brian Almazo  
-**Repository**: https://github.com/BrianAlmaz0/brianalmazo.github.io
+**Repository**: https://github.com/BrianAlmaz0/brianalmaz0.github.io
