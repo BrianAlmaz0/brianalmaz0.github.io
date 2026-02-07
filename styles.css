@@ -106,8 +106,12 @@ section {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* This more specific selector wins over the general section rule above */
-section#skills {
+/* SPECIFICITY CHALLENGE: Class selector vs. Element selector
+   The .hero class wins over the general section element selector because:
+   - Element selector (section) = 1 point
+   - Class selector (.hero) = 10 points
+   Result: The #about section with class="hero" gets the gradient background */
+.hero {
     background: linear-gradient(to right, #f8f9fa, #e9ecef);
 }
 
@@ -117,6 +121,15 @@ section h2 {
     margin-bottom: 2rem;
     border-bottom: 3px solid #764ba2;
     padding-bottom: 0.5rem;
+}
+
+/* ADDITIONAL SPECIFICITY EXAMPLE: Element selector vs. ID selector
+   The #skills ID selector wins over the general section element selector because:
+   - Element selector (section) = 1 point
+   - ID selector (#skills) = 100 points
+   Result: The skills section gets a special gradient background */
+section#skills {
+    background: linear-gradient(135deg, #667eea22, #764ba222);
 }
 
 /* Experience and Project Items - Class Selectors */
