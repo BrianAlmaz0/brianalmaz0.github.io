@@ -1,0 +1,250 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles - Element Selector */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+/* Navigation - Element and Class Selectors */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* Hero Section - ID Selector */
+#about {
+    background: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 2rem;
+    display: block;
+    border: 5px solid #667eea;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.contact-info a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Section Styles - General vs. Specific Selector Conflict */
+section {
+    padding: 3rem 0;
+    background: white;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* This more specific selector wins over the general section rule above */
+section#skills {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+section h2 {
+    color: #667eea;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #764ba2;
+    padding-bottom: 0.5rem;
+}
+
+/* Experience and Project Items - Class Selectors */
+.experience-item,
+.project-item,
+.education-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover,
+.project-item:hover,
+.education-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.experience-item h3,
+.project-item h3,
+.education-item h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.location-date {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.experience-item ul,
+.project-item ul,
+.education-item ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.experience-item li,
+.project-item li,
+.education-item li {
+    margin: 0.5rem 0;
+    line-height: 1.8;
+}
+
+/* Table Styles - Element Selector */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+thead {
+    background: #667eea;
+    color: white;
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.category-cell {
+    font-weight: 600;
+    color: #667eea;
+    width: 200px;
+}
+
+/* Footer - Element Selector */
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    section h2 {
+        font-size: 1.5rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+    }
+}
