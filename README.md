@@ -1,92 +1,43 @@
-# Brian Almazo - Professional Resume Website
+# Brian Almazo
 
-This is a professional resume/portfolio website built as part of Homework 1 for Web Development.
+This is my personal resume website that I built for my web development class. It's hosted on GitHub Pages and showcases my experience, projects, and skills.
 
-## Assignment Requirements Completed
+## What's Inside
 
-### ✅ Task 1: Repository & Deployment (Git/GitHub)
-- Repository created and ready for GitHub Pages deployment
-- Three distinct commits showing project evolution
+The site includes:
+- My work experience (Humana, Unadat, Hunter College ICIT)
+- Projects I've worked on (JP Morgan Code for Good, AI Running Coach, MTA Accessibility Analysis)
+- Skills and technologies I know
+- Education background from Hunter College
 
-### ✅ Task 2: Content & Structure (HTML)
-- Semantic HTML5 tags: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`
-- Table displaying skills and technologies
-- Ordered and unordered lists throughout
-- Professional placeholder image in `/assets` folder
+## Tech Stack
 
-### ✅ Task 3: Styling & Specificity (CSS)
-- External CSS file (`styles.css`)
-- CSS specificity demonstration: element selectors vs. ID selectors
-- At least 3 different selector types: Element, Class, and ID selectors
-- Responsive design for mobile devices
+Built with plain HTML and CSS - no frameworks needed for this one. I wanted to focus on understanding the fundamentals first.
 
-### ✅ Task 4: The Docker Reflection (GenAI-Guard)
-- `REFLECTION.md` file with detailed explanations
-- HTTP request path documentation
-- Docker vs. GitHub Pages environment comparison
-- AI attribution and manual fixes documented
+- HTML5 with semantic tags
+- CSS3 with some gradient styling
+- Hosted on GitHub Pages
 
-## Technologies Used
+## Running Locally
 
-- HTML5
-- CSS3
-- Git/GitHub
-- GitHub Pages
+If you want to check it out locally, just clone the repo and open `index.html` in your browser. That's it.
 
-## Local Development
-
-1. Open `index.html` in your browser to view the site locally
-2. Make changes to HTML or CSS files
-3. Refresh browser to see updates
-
-## Deployment Instructions
-
-To deploy this website to GitHub Pages:
-
-1. Create a repository named `[your-username].github.io` on GitHub
-2. Initialize git and add files:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial structure: Add HTML skeleton and basic layout"
-   ```
-3. Add more features and commit:
-   ```bash
-   git add .
-   git commit -m "Add CSS layout and styling with specificity examples"
-   ```
-4. Final commit:
-   ```bash
-   git add .
-   git commit -m "Fix specificity issues and finalize responsive design"
-   ```
-5. Push to GitHub:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/[your-username]/[your-username].github.io.git
-   git push -u origin main
-   ```
-6. Enable GitHub Pages in repository settings
-7. Your site will be live at `https://[your-username].github.io`
-
-## File Structure
-
+```bash
+git clone https://github.com/BrianAlmaz0/brianalmaz0.github.io.git
+cd brianalmaz0.github.io
+open index.html
 ```
-Homework 1/
-├── index.html          # Main HTML file with resume content
-├── styles.css          # External CSS with specificity examples
-├── REFLECTION.md       # Docker reflection and AI attribution
-├── README.md          # This file
-└── assets/
-    └── profile-photo.jpg  # Professional profile photo
-```
+
+## Files
+
+- `index.html` - main page with all my info
+- `styles.css` - styling and layout
+- `REFLECTION.md` - write-up about HTTP requests and Docker vs GitHub Pages (assignment requirement)
+- `assets/` - just has my profile photo
 
 ## Contact
 
+Feel free to reach out:
 - Email: brianalmazo9@gmail.com
 - LinkedIn: [linkedin.com/in/balmazo/](https://linkedin.com/in/balmazo/)
 - GitHub: [github.com/BrianAlmaz0](https://github.com/BrianAlmaz0)
-
----
-
-© 2026 Brian Almazo. All rights reserved.
