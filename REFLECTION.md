@@ -53,11 +53,11 @@ In this project I used things like `gap: 2rem` and `width: 100%` for images so t
 
 ---
 
-### 3) AI attribution — how I used AI and why I didn't just hand the project off
+### 3) AI attribution
 
 Tools I used: GitHub Copilot and Claude (Anthropic).
 
-I used AI as a tutor and sounding board. I asked conceptual questions and used the answers to make informed decisions. Here are some of prompts I used:
+I asked conceptual questions and used the answers to make informed decisions. Here are some of prompts I used:
 
 - "How does `justify-content: space-between` work in a flex container, and when should I use it for a header?" — helped me figure out how to space logo and nav links.
 - "What's the advantage of `grid-template-columns: repeat(3, 1fr)` over fixed column widths for a project gallery?" — helped me choose `1fr` for a flexible 3-column grid.
@@ -72,7 +72,4 @@ What AI helped me do:
 - Iterate faster by testing ideas it suggested and adjusting them to fit my site
 
 ---
-
-Assignment completion: March 8, 2026
-Student: Brian Almazo
 Repository: https://github.com/BrianAlmaz0/brianalmaz0.github.io
